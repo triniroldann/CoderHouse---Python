@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    categorias
+{% endblock %}
+
+{% block content %}
+    <h1>ESTAS SON TODAS LAS CATEGORIAS QUE UNO PUEDE ELEGIR SEGUN QUIEN SE QUIERA OPERAR:</h1>
+        <h2>
+             {% for category in categories %}
+
+        <p> Se realizan operaciones en: {{category.name}} </p>
+
+    {% endfor %} </h2>
+{% endblock %}

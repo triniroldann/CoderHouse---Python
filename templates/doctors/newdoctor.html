@@ -1,0 +1,22 @@
+{% extends 'base.html' %} 
+{% block title %} Nuevo doctor {% endblock %} 
+{% block content %}
+<h1>AGREGAR UN NUEVO MEDICO QUE REALIZE UNA OPERACION:</h1>
+{% if form %}
+ <form action="" method="POST">
+    {% csrf_token %} 
+    <table>
+        {{form.as_table}}
+    </table>
+
+    <p><input type="submit" value="ENVIAR" ></p>
+  </form>
+    {% endif %}
+    {% if form_errors %}
+    <h2 >Errores:</h2>
+    {{form_errors}}
+{% endif %}
+{% if message %}
+<h2 style="color: red;" >{{message}}</h2>
+{% endif %}
+{% endblock %}
