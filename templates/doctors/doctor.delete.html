@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}
+    Borrar doctores
+{% endblock %}
+{% block content %}
+    <h3 > Doctor a borrar : {{object.name}} <h3 >
+    <p> Seguro que queres borrar a este doctor? </p>
+    
+    <form action= "" method= "POST">
+        {% csrf_token %}
+        <input  type="submit" value= "Borrar">
+    </form>
+
+{% endblock %}

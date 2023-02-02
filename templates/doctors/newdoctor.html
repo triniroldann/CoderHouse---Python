@@ -17,6 +17,8 @@
     {{form_errors}}
 {% endif %}
 {% if message %}
-<h2 style="color: red;" >{{message}}</h2>
+<h2 style="color: red;" >{{message}}
+  <p> <a href="/doctors/list-doctors/" class="btn btn-primary">Ir a la lista</a> </p>
+</h2>
 {% endif %}
 {% endblock %}
