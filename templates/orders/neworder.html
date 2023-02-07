@@ -1,0 +1,24 @@
+{% extends 'base.html' %} 
+{% block title %} Nueva orden {% endblock %} 
+{% block content %}
+<h1>COMPLETE SUS DATOS:</h1>
+{% if form %}
+ <form action="" method="POST">
+    {% csrf_token %} 
+    <table>
+        {{form.as_table}}
+    </table>
+
+    <p><input type="submit" value="ENVIAR" ></p>
+  </form>
+    {% endif %}
+    {% if form_errors %}
+    <h2 >Errores:</h2>
+    {{form_errors}}
+{% endif %}
+{% if message %}
+<h2 style="color: red;" >{{message}}
+  {% comment %} <p> <a href="/doctors/list-doctors/" class="btn btn-primary">Ir a la lista</a> </p> {% endcomment %}
+</h2>
+{% endif %}
+{% endblock %}

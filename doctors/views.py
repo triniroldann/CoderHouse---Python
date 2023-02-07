@@ -3,7 +3,9 @@ from django.http import HttpResponse
 from doctors.models import Doctors
 from doctors.forms import DoctorsForm
 from django.views.generic import ListView,DeleteView
-
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
+@login_required
 def create_doctor(request):
     if request.method == "GET":
         context= {"form": DoctorsForm ()}
@@ -22,6 +24,7 @@ def create_doctor(request):
             context= {"form_errors": form.errors, 
             "form": DoctorsForm}
             return render(request, 'doctors/newdoctor.html', context= context)
+@login_required
 def update_doctor(request,id):
     doctor= Doctors.objects.get(id=id)
     if request.method == "GET":
@@ -58,7 +61,7 @@ class Doctors_list(ListView):
         else:
             object_list = self.model.objects.all()
         return object_list
-class DoctorDeleteView(DeleteView):
+class DoctorDeleteView(LoginRequiredMixin, DeleteView):
     model = Doctors
     template_name = "doctors/doctor.delete.html"
     success_url= '/doctors/list-doctors/'

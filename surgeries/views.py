@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from surgeries.models import Surgeries, Category
 from surgeries.forms import SurgeriesForm
-
+from django.contrib.auth.decorators import login_required
+@login_required
 def create_surgerie(request):
     if request.method == "GET":
         context= {"form": SurgeriesForm()}
@@ -29,6 +30,7 @@ def list_surgeries(request):
     }
     return render(request, 'surgeries/listsurgeries.html', context=context)
 
+@login_required
 def create_category(request, name):
     Category.objects.create(name=name)
     return HttpResponse('Categoria creada')

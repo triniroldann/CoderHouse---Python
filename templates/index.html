@@ -7,4 +7,19 @@
 {% block content %}
     <h1>Hospital Roldán</h1>
     <h2>Ofrecemos distintas operaciones que se pueden ver en esta pagína </h2>
+    {% if request.user.is_authenticated %}
+    {% if request.user.is_superuser %} 
+    <a  <button type="button" class="btn btn-primary"  href="/orders/list-orders/">Ver ordenes</button></a>
+    {% endif %} 
+    {% endif %}
+
+
+
+
+    {% if request.user %}
+<div class=" fixed-bottom">
+    Esta logead@: {{request.user}}
+</div>
+{% endif %} 
+
 {% endblock %}

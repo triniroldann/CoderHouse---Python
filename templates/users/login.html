@@ -1,0 +1,27 @@
+{% extends 'base.html' %} 
+{% block title %} Nuevo usuario {% endblock %} 
+{% block content %}
+<h1>COMPLETE SUS DATOS:</h1>
+{% if form %}
+ <form action="" method="POST">
+    {% csrf_token %} 
+    <table>
+        {{form.as_table}}
+    </table>
+
+    <p><input type="submit" value="ENVIAR" ></p>
+  </form>
+    {% endif %}
+    {% if form_errors %}
+    <h2 >Errores:</h2>
+    {{form_errors}}
+{% endif %}
+{% if message %}
+<h2 style="color: blue;" ><div class="alert alert-primary" role="alert">
+    {{message}} <a href="#" class="alert-link">
+{% endif %}
+{% if errors %}
+<h2 style="color: blue;" ><div class="alert alert-danger" role="alert">
+    {{errors}} <a href="#" class="alert-link">
+{% endif %}
+{% endblock %}

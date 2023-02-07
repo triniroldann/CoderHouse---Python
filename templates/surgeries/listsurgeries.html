@@ -6,10 +6,14 @@
 
 {% block content %}
     <h1>TODAS LAS CIRUGIAS QUE SE REALIZAN</h1>
+    {% if request.user.is_authenticated %}
+    {% if request.user.is_superuser %} 
     <div style="display: grid; grid-auto-flow: row; justify-content: center; align-items:center ; padding: 2rem;" > 
         <h4>Agregar una nueva cirugía </h4> 
         <a href="/surgeries/newsurgerie" class="btn btn-primary">Crear</a>
     </div>
+     {% endif %}
+     {% endif %}
     <div style="background-color: gainsboro; display: grid; grid-auto-flow: column; padding: 2rem; justify-content: left; grid-column-gap: 2rem;">
       {% for surgerie in surgeries %}
       <div style="background-color: white; border: 1px solid #303030; display: grid; grid-auto-flow: row; width: fit-content; padding: 2rem; border-radius: 1rem; box-shadow: 0px 5px 5px 0px rgba(30,30,30,0.3);
