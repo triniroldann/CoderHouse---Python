@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}About us{% endblock %}
+
+{% block content %}
+<div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          SOBRE EL PROYECTO:
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <strong>Mi nombre es Trinidad Roldan y este es el proyecto final para el curso de python de coderhouse.</strong> Este es un sitio web de un hospital donde se realizan cirugías.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+       Funcionamiento:
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+           Se pueden ver los doctores y las cirugías ordenados por categorías y la descripcion de cada uno individualmente, y los usuarios pueden registrarse, loguearse y la editar sus datos de perfil. Tambien cuenta con l CRUD donde el administrador de la pagina puede modificar los datos de las cirugías, los doctores y agregar ordenes.</p>
+        
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            </div>
+          </div>
+        </div>
+        
+      </div>
+
+      {% endblock %}
+    
+     
+    

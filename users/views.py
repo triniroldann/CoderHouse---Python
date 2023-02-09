@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
 from users.models import UserProfile
-from users.forms import RegisterForm
+from users.forms import RegisterForm,UserUpdateForm, UserProfileForm
 
 def login_view(request):
     if request.method == 'GET':
@@ -38,6 +38,7 @@ def register(request):
             'form':form
         }
         return render(request, 'users/register.html', context=context)
+
     elif request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
@@ -51,5 +52,58 @@ def register(request):
         }
         return render(request, 'users/register.html', context=context)
 
+@login_required
+def update_user(request):
+    user = request.user
+    if request.method == 'GET':
+        form = UserUpdateForm(initial = {
+            'username':user.username,
+            'first_name':user.first_name,
+            'last_name':user.last_name
+        })
+        context ={
+            'form':form
+        }
+        return render(request, 'users/update_user.html', context=context)
 
+    elif request.method == 'POST':
+        form = UserUpdateForm(request.POST)
+        if form.is_valid():
+            user.username = form.cleaned_data.get('username')
+            user.first_name = form.cleaned_data.get('first_name')
+            user.last_name = form.cleaned_data.get('last_name')
+            user.save()
+            return redirect('index')
+        
+        context = {
+            'errors':form.errors,
+            'form':UserUpdateForm()
+        }
+        return render(request, 'users/update_user.html', context=context)
+@login_required
+def update_user_profile(request):
+    user = request.user
+    if request.method == 'GET':
+        form = UserProfileForm(initial={
+            'birth_date':request.user.profile.birth_date,
+            'profile_picture':request.user.profile.profile_picture,
+            })
+        context ={
+            'form':form
+        }
+        return render(request, 'users/update_profile.html', context=context)
+
+    elif request.method == 'POST':
+        form = UserProfileForm(request.POST, request.FILES)
+        if form.is_valid():
+            user.profile.birth_date = form.cleaned_data.get('birth_date')
+            user.profile.profile_picture = form.cleaned_data.get('profile_picture')
+            user.profile.save()
+            return redirect('index')
+        
+        context = {
+            'errors':form.errors,
+            'form':UserProfileForm()
+        }
+        return render(request, 'users/register.html', context=context)
 

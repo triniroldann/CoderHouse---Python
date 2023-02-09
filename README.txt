@@ -1,9 +1,15 @@
-Hospital Roldan (sitio web administrativo hospitalario)
-- Proyecto realizado individualmente por Trinidad Roldan.
-- Cuenta con 2 aplicaciones y un proyecto base.
-- La apliación doctors sirve para agregar los doctores que realizarían las operaciones, donde el superuser puede ir agregando nuevos doctores mediante un formulario que esta en la ULR /doctors/newdoctor o haciendo click en botón crear de la sección de Doctores donde hay una lista de todos ellos.
-- En doctors hay un modelo con los campos name, speciality y birth_date.
-- En la URL list-doctors/ hay un buscador que filtra los nombres de los doctores.
-- En la aplicación surgeries se pueden ver las cirugías que se realizarían, y también las categorías en las cuales estas se separan, esto se ve en los dos modelos que tiene esta app, que son Surgeries y Category.
-- En el modelo Category se agregan los datos por la URL, y tiene solo un campo que es name
-- El modelo Surgeries funciona igual que el modelo Doctors, con los campos organ, price y legal_age.
+Proyecto Final Python Coder House
+
+El proyecto Presenta la página web administrativa de un Hospital.
+
+El sitio contiene:
+
+Pagina /about donde explica brevemente el proyecto.
+Los elementos necesarios para la navegacion e interaccion de un usuario Navbar, ver los docores, cirugías y categorías, About, Login y Signup.
+Un usuario puede registrarse en el sitio web modificar datos de su cuenta, datos personales e imagen de perfil.
+Un usuario con permisos de administrador puede Hacer un CRUD sobre cualquier doctor y cirugía.
+Hay un buscador que filtra los nombres de los doctores desde cualquier ULR.
+En el modelo Category se agregan los datos por la URL. En los demas modelos se agrega mediante formularios.
+Estan delimitadas las secciones donde los usuarios pueden navegar, muchos botones estan disponibes solo para administrador.
+Dentro del panel de administrador de django se pueden acceder a todas las configuraciones de la pagina web.
+Con el usuario user.user y la contraseña adminadmin se puede ingresar como si fueras un administrador.
