@@ -5,10 +5,10 @@
 {% endblock %}
 
 {% block content %}
-    <h1><p class="text-center">Hospital Roldán</p></h1>
-    <h2>Ofrecemos distintas operaciones que se pueden ver en esta pagína </h2>
-    <div id="carouselExample" class="carousel slide">
-        <div class="carousel-inner">
+<h1><p class="text-center">Hospital Roldán</p></h1>
+<h2>Ofrecemos distintas operaciones que se pueden ver en esta pagína </h2>
+<div id="carouselExample" class="carousel slide">
+  <div class="carousel-inner">
           <div class="carousel-item active">
             <img src="/media/index/index3.jpg" class="d-block w-100" alt="...">
           </div>
@@ -28,20 +28,20 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-
-    {% if request.user.is_authenticated %}
-    {% if request.user.is_superuser %} 
-    <div  class="position-absolute bottom-0 end-0"</div>
-        <p class="text-light bg-dark">Agregar/modificar/borrar ordenes:</p>
-        <div>   <a <button class="btn btn-primary me-md-2" type="button"  href="/orders/list-orders/">Ordenes</button></a>
-    </div>
-    {% endif %} 
-    {% endif %}
-    {% if request.user %}
-
-<div class=" fixed-bottom">
-    Esta logead@: {{request.user}}
-</div>
-{% endif %} 
+      
+      {% if request.user %}
+      
+      <div class=" fixed-bottom">
+        Esta logead@: {{request.user}}
+      </div>
+      {% endif %} 
+      {% if request.user.is_authenticated %}
+      {% if request.user.is_superuser %} 
+      <div  class="position-absolute bottom-0 end-0"
+          <p class="text-light bg-dark">Agregar/modificar/borrar ordenes:</p>
+          <div>   <a <button class="btn btn-primary me-md-2" type="button"  href="/orders/list-orders/">Ordenes</button></a>
+      </div>
+      {% endif %} 
+      {% endif %}
 
 {% endblock %}
